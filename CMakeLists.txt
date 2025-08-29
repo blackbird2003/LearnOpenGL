@@ -5,11 +5,15 @@ project(LearnOpenGL)
 find_package(fmt CONFIG REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
 find_package(glad CONFIG REQUIRED)
+find_package(assimp CONFIG REQUIRED)
+find_package(imgui CONFIG REQUIRED)
 
-set(COMMON_LIBS fmt::fmt glfw glad::glad)
+
+set(COMMON_LIBS fmt::fmt glfw glad::glad assimp::assimp imgui::imgui)
 
 
 include_directories(${CMAKE_SOURCE_DIR}/includes)
+
 
 macro(add_exe source)
     get_filename_component(target ${source} NAME_WE)
@@ -40,6 +44,8 @@ add_exe(Lighting/light_casters_flashlight.cpp)
 add_exe(Lighting/multiple_lights.cpp)
 
 add_exe(imgui_test.cpp)
+
+add_exe(model_test.cpp)
 
 
 
